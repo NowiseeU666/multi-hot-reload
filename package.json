@@ -1,0 +1,30 @@
+{
+  "name": "template-hot-server",
+  "version": "0.0.1",
+  "description": "simple development http server for template engine framework",
+  "main": "lib/bundle.cjs.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npx rollup -c rollup.config.js"
+  },
+  "keywords": [
+    "development",
+    "server",
+    "hot-reload"
+  ],
+  "author": "nowisee",
+  "license": "MIT",
+  "dependencies": {
+    "chokidar": "^3.5.3",
+    "colors": "^1.4.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.3",
+    "socket.io": "^4.4.1"
+  },
+  "devDependencies": {
+    "rollup": "^2.70.1",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-json": "^4.0.0",
+    "rollup-plugin-node-resolve": "^5.2.0"
+  }
+}
