@@ -3,15 +3,15 @@ const cwdPath = process.cwd();
 const path = require("path");
 require("colors");
 
-function handleFileChange(socketEvent) {
-  console.log("file change detected".green);
+function handleFileChange(socketEvent, e) {
+  console.log(`file change detected ${e}`.green);
   socketEvent.emit("reload")
 }
 
 function createWatcher(socketEvent, watchDir) {
-  const watcher = chokidar.watch(path.resolve(cwdPath, watchDir));
+  const watcher = chokidar.watch(path.resolve(cwdPath, `.${watchDir}`));
   watcher
-    .on("change", () => handleFileChange(socketEvent))
+    .on("change", (e) => handleFileChange(socketEvent, e))
 }
 
 

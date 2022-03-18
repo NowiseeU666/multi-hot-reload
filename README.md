@@ -10,10 +10,12 @@ Usage from node
 var server = require("template-hot-server");
 
 var params = {
-  socketPort: "8000", // server port
-  watchDir: "./dist", //watch directory
-  target: "./dist/index.html", // template file
-  devServer: "127.0.0.1:8080" //php java server address
+  socketHost: "127.0.0.1", //Socket域名
+  socketPort: "3000", //Socket端口号
+  watchDir: "/dist", //监听目录
+  target: "/dist/index.html", // 前后端不分离时的主文件
+  devServer: "test.com" //使用PHP JAVA开发时启动的服务器地址
 };
 server.start(params);
+
 ```

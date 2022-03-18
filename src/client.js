@@ -1,8 +1,10 @@
 function initScript(options) {
-    return `const devServerAddress = "http://${options.devServer}",
+    const socketServer = `${options.socketHost}:${options.socketPort}`
+    return `const devServerAddress = "http://${options.devServer || socketServer}",
         socketArc = "https://lib.baomitu.com/socket.io/4.4.1/socket.io.js",
-        socketServerAddress = "http://localhost:${options.socketPort}"
+        socketServerAddress = "${socketServer}"
     if (location.href.startsWith(devServerAddress) && "WebSocket" in window) {
+        console.log(100);
         let scriptEl = document.createElement("script");
         scriptEl.setAttribute("src", socketArc);
         document.body.appendChild(scriptEl);

@@ -19,7 +19,8 @@
     "chokidar": "^3.5.3",
     "colors": "^1.4.0",
     "cors": "^2.8.5",
-    "express": "^4.17.3",
+    "koa": "^2.13.4",
+    "mime-types": "^2.1.35",
     "socket.io": "^4.4.1"
   },
   "devDependencies": {
@@ -36,5 +37,5 @@
     "src/**/*.{js,jsx,ts,tsx,json}": [
       "git add"
     ]
-}
+  }
 }

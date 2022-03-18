@@ -6,9 +6,9 @@ const hotServerInstance = {};
 const defaultOptions = {
   socketHost: "127.0.0.1",
   socketPort: "80",
-  watchDir: process.cwd(),
-  target: "./dist/index.html",
-  devServer: "127.0.0.0"
+  watchDir: "",
+  target: "",
+  devServer: ""
 }
 
 function setOptions(userOpt) {

@@ -1,30 +1,28 @@
 const { Server } = require("socket.io");
 const http = require("http");
-const app = require("./app");
-const server = http.createServer(app);
+const createApp = require("./app");
 require("colors")
-
-const inject = require("./inject");
 
 const createWatcher = require("./watcher");
 
 
 function createSocketServer(options) {
-    const io = new Server(server, { cors: true });
+  const server = http.createServer(createApp(options).callback());
+  
+  const io = new Server(server, { cors: true });
 
-    inject(options);
+  server.listen(options.socketPort, () => {
+    console.log(`socket listening on port ${server.address().port}`.green);
+  });
 
-    server.listen(options.socketPort, () => {
-        console.log(`socket listening on port ${server.address().port}`.green);
-    });
-
-    io.on('connection', (socketEvent) => {
-        createWatcher(socketEvent, options.watchDir);
-    });
-    io.on("disconnection", () => {
-        console.log(`socket disconnection`.green);
-        delInject(options.target)
-    })
+  io.on('connection', (socketEvent) => {
+    console.log("socket connection".green);
+    createWatcher(socketEvent, options.watchDir);
+  });
+  io.on("disconnection", () => {
+    console.log(`socket disconnection`.cyan);
+    delInject(options.target)
+  })
 }
 
 module.exports = createSocketServer;
