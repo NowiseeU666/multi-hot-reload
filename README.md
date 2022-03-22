@@ -1,4 +1,4 @@
-template-hot-server
+multi-hot-reload
 ===========
 
 用于全后端不分离项目的热更新
@@ -7,7 +7,7 @@ Usage from node
 ---------------
 
 ```javascript
-var server = require("template-hot-server");
+var server = require("multi-hot-reload");
 
 var params = {
   socketHost: "127.0.0.1", //Socket域名
