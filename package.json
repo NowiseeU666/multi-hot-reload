@@ -1,12 +1,15 @@
 {
-  "name": "template-hot-server",
-  "version": "0.0.1",
+  "name": "multi-hot-reload",
+  "version": "1.0.0",
   "description": "simple development http server for template engine framework",
   "main": "lib/bundle.cjs.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npx rollup -c rollup.config.js",
     "prepare": "husky install"
+  },
+  "bin": {
+    "multi-hot-reload": "./src/bootstrap.js"
   },
   "keywords": [
     "development",
